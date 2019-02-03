@@ -1,4 +1,16 @@
 package com.example.htetwaiyan.mymvp.view.add_activity
 
-class AddContract {
+interface AddView{
+
+ fun   showLoading()
+ fun   hideLoading()
+    fun displayAddSuccess()
+
+
+}
+
+interface AddPresenter{
+
+   fun addSubject(subject:String)
+
 }

@@ -51,6 +51,12 @@ class MainActivity : AppCompatActivity(),MainView{
          sadapter=SubjectAdapter(this)
         rv_subject_ma.adapter=sadapter
 
+        sadapter!!.onSubjectClickListener(object:SubjectDelegate{
+            override fun SubjectClick(sub: Subject) {
+
+            }
+        })
+
         presenter!!.fetchSubject()
 
     }
@@ -66,5 +72,10 @@ class MainActivity : AppCompatActivity(),MainView{
             startActivity(Intent(this@MainActivity,AddActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        presenter!!.fetchSubject()
     }
 }

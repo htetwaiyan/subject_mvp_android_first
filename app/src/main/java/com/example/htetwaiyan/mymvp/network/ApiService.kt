@@ -18,8 +18,18 @@ interface ApiService {
     @POST("subject")
     fun getSubject(@Field("secrete")apikey:String) : Call<SubjectResponse>
 
+
+
+    @FormUrlEncoded
+@POST("subject/add")
+fun addSubject(@Field("secrete")apikey: String,@Field("name")subject:String):Call<String>
+
     //int a=10;
     //var a:Int=10;
+
+    @FormUrlEncoded
+    @POST("subject/delete")
+    fun deleteSubject(@Field("secrete")apikey: String,@Field("id")id:String):Call<String>
 
 
 

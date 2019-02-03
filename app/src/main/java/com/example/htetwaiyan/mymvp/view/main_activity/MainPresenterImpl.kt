@@ -11,8 +11,28 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainPresenterImpl(var mv:MainView) : MainPresenter{
+    override fun deleteSubject(id: String) {
+        mv.showLoading()
+        api!!.deleteSubject(KEY,id).enqueue(object:Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                mv.hideLoading()
+                mv.showError(t.message.toString())
+            }
 
-     var api:ApiService?=null
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                mv.hideLoading()
+                if(response.body()=="deleted"){
+                    fetchSubject()
+                }
+
+            }
+
+        })
+
+
+    }
+
+    var api:ApiService?=null
 
 
     init {

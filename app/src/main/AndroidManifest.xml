@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.htetwaiyan.mymvp">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.htetwaiyan.mymvp">
 <uses-permission android:name="android.permission.INTERNET"/>
     <application
             android:allowBackup="true"
@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:networkSecurityConfig="@xml/network_security_config"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".view.main_activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

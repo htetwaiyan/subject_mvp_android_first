@@ -13,6 +13,12 @@ class SubjectAdapter(var ctxt: Context): RecyclerView.Adapter<SubjectAdapter.Sub
 
     var subjects:List<Subject> =ArrayList<Subject>()//0
 
+    var delegate:SubjectDelegate?=null
+
+    fun onSubjectClickListener(delegate: SubjectDelegate){
+        this.delegate=delegate
+    }
+
     fun setList(subjects:List<Subject>){
         this.subjects=subjects
         notifyDataSetChanged()
@@ -27,6 +33,9 @@ class SubjectAdapter(var ctxt: Context): RecyclerView.Adapter<SubjectAdapter.Sub
     override fun onBindViewHolder(holder: SubjectHolder, position: Int) {
         var sub=subjects[position]
         holder.itemView.tv_sv.text=sub.name
+        holder.itemView.setOnClickListener{
+            delegate!!.SubjectClick(sub)
+        }
     }
 
     override fun getItemCount(): Int {

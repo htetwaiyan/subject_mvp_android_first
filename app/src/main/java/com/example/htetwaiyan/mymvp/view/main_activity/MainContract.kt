@@ -5,6 +5,7 @@ import com.example.htetwaiyan.mymvp.model.Subject
 interface MainPresenter{
 
    fun fetchSubject()
+    fun deleteSubject(id:String)
 
 }
 
@@ -14,6 +15,5 @@ interface MainView {
     fun hideLoading()
     fun showData(subjects:List<Subject>)
     fun showError(str:String)
-
 
 }
